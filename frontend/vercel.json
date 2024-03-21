@@ -1,6 +1,6 @@
 {
     "rewrites": [
-        { "source": "/submission/post", "destination": "/" }
+        { "source": "/submission/post", "destination": "/" },
         { "source": "/submission/all", "destination": "/" }
     ]
 }
