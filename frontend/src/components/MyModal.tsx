@@ -2,7 +2,7 @@ import { useState } from "react";
 import CodeSnippet from "./CodeSnippet";
 
 
-export function MyModal({language, code}){
+export function MyModal({language, code}: any){
     const [show, setshow] = useState(false);
     return <>
         <p className="text-center"><button onClick={() => setshow(true)}> View</button></p>

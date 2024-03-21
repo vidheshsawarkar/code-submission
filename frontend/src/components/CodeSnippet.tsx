@@ -13,10 +13,11 @@ hljs.registerLanguage("python", python);
 hljs.registerLanguage("cpp", cpp);
 
 
-const CodeSnippet = ({language, code}) => {
+const CodeSnippet = ({language, code}: any) => {
   const codeRef = useRef(null);
   
   useEffect(() => {
+    // @ts-ignore
     hljs.highlightBlock(codeRef.current);
   }, []);
 

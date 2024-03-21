@@ -1,13 +1,19 @@
 import { MyModal } from './MyModal';
-import { useEffect, useState } from 'react';
+import { JSXElementConstructor, ReactElement, ReactNode, ReactPortal, useEffect, useState } from 'react';
 import axios from 'axios';
 import { BACKEND_URL } from '../../config';
 import { Skeleton } from './Skeleton';
 
+export interface sub {
+    "username": string;
+    "language": string;
+    "input": string;
+    "code": string;
+}
+
 export function Table(){
-    const [data, setdata] = useState([]);
+    const [data, setdata] = useState<sub>();
     const [loading, setLoading] = useState(true);
-    const [rowCount, setRowCount] = useState(5);
 
 
     useEffect(() => {
@@ -15,13 +21,12 @@ export function Table(){
         .then(response => {
             setLoading(false)
             setdata(response.data.submission);
-            setRowCount(data.length);
         })
     },[])
 
     if(loading){
         return <div>
-            <Skeleton count={rowCount} />
+            <Skeleton count={"5"} />
         </div>
     }
 
@@ -39,12 +44,13 @@ export function Table(){
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map(d => <tr className="border-b">
+                    {// @ts-ignore
+                    data.map((d: { username: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; language: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; time: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; input: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; code: any; }) => <tr className="border-b">
                         <td className="text-center text-sm font-medium p-4 whitespace-nowrap">{d.username}</td>
                         <td className="text-center text-sm text-green-600 p-4 whitespace-nowrap">{d.language}</td>
                         <td className="text-center text-sm text-gray-600 p-4 whitespace-nowrap">{d.time}</td>
                         <td className="text-center text-sm text-gray-600 p-4 whitespace-nowrap">{d.input}</td>
-                        <td className="text-sm font-medium text-blue-800 cursor-pointer p-4 whitespace-nowrap"> <MyModal code={d.language,d.code} /></td>
+                        <td className="text-sm font-medium text-blue-800 cursor-pointer p-4 whitespace-nowrap"> <MyModal language={d.language} code={d.code} /></td>
                     </tr>)}
                 </tbody>
             </table>
