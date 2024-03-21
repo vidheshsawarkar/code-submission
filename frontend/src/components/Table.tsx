@@ -22,7 +22,7 @@ export function Table(){
             setLoading(false)
             setdata(response.data.submission);
         })
-    },[])
+    },[data])
 
     if(loading){
         return <div>
