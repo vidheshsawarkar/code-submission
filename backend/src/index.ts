@@ -51,5 +51,4 @@ app.get("/api/all/submission",async (c) => {
 	return c.json({ submission });
 })
 
-
 export default app
