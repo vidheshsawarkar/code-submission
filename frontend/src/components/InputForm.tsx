@@ -24,7 +24,7 @@ export function InputForm(){
 
     return <form className="group" noValidate>
         <div className="flex flex-col items-center justify-center mt-20">
-            <div className="mb-4 w-4/5 md:w-1/3">
+            <div className="mb-4 w-4/5 lg:w-1/3 md:w-3/5">
                 <input type="text" onChange={(e) => {
                     setInputs({
                         ...inputs,
@@ -32,7 +32,7 @@ export function InputForm(){
                     })
                 }} className="block r-4 p-2.5 w-full text-base rounded border border-gray-400 hover:border-2 hover:border-blue-500" placeholder="username" required />
             </div>
-            <div className="relative w-4/5 md:w-1/3 mb-4">
+            <div className="relative w-4/5 lg:w-1/3 md:w-3/5 mb-4">
                 <select onChange={(e) => {
                     setInputs({
                         ...inputs,
@@ -48,7 +48,7 @@ export function InputForm(){
                     <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                 </div>
             </div>
-            <div className="mb-4 w-4/5 md:w-1/3">
+            <div className="mb-4 w-4/5 lg:w-1/3 md:w-3/5">
                 <textarea onChange={(e) => {
                     setInputs({
                         ...inputs,
@@ -56,7 +56,7 @@ export function InputForm(){
                     })
                 }} rows={3} className="block r-4 p-2.5 w-full text-base rounded border border-gray-400 hover:border-2 hover:border-blue-500" placeholder="standard inputs" required></textarea>
             </div>
-            <div className="mb-6 w-4/5 md:w-1/3">
+            <div className="mb-6 w-4/5 lg:w-1/3 md:w-3/5">
                 <textarea onChange={(e) => {
                     setInputs({
                         ...inputs,
